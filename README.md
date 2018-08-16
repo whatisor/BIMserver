@@ -1,29 +1,53 @@
 BIMserver
 =========
 1. GLTF2 loader:
+
 var query = {includeAllFields: true}
+
 loadBIM = function(roid, query, callback) {
+
 	var self = this;
+	
 	self.bimServerApi.getSerializerByPluginClassName("org.bimserver.gltf.BinaryGltfSerializerPlugin2", function(serializer) {
+	
 		self.bimServerApi.call("ServiceInterface", "download", {
+		
 			roids: [roid],
+			
 			query: JSON.stringify(query),
+			
 			serializerOid: serializer.oid,
+			
 			sync: false
+			
 		}, function(topicId) {
+		
 			self.bimServerApi.registerProgressHandler(topicId, function(topicId, state) {
+			
 				if (state.title == "Done preparing") {
+				
 					var url = self.bimServerApi.generateRevisionDownloadUrl({
+					
 						zip:false,
+						
 						serializerOid: serializer.oid,
+						
 						topicId: topicId
+						
 					});
+					
 					console.log(url);
+					
 					callback(url);
+					
 				}
+				
 			});
+			
 		});
+		
 	});
+	
 } 
 
 
