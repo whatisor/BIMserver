@@ -10,7 +10,7 @@
 		<version>1.5.147</version>
 	</parent>
 	<properties>
-		<jetty.version>9.4.17.v20190418</jetty.version>
+		<jetty.version>9.4.19.v20190610</jetty.version>
 	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -64,7 +64,7 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<dependency>
+				<dependency>
 			<groupId>org.opensourcebim</groupId>
 			<artifactId>bimserver</artifactId>
 			<version>1.5.147</version>

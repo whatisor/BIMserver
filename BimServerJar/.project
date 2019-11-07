@@ -3,6 +3,7 @@
 	<name>BimServerJar</name>
 	<comment></comment>
 	<projects>
+		<project>BimServer</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
